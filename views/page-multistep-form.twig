@@ -1,49 +1,53 @@
 {% extends "base.twig" %}
-
 {% block content %}
-
-<div class="content-wrapper">
-    <article class="post-type-{{post.post_type}}" id="post-{{post.ID}}">
-      <section class="article-content">
-        <h1 class="article-h1">{{post.title}}</h1>
-        <form method="post" id="multi-step-form">
-          {% set values = form_data|default({}) %}
-
-          <!-- Крок 1 -->
-          <div id="step-1" class="form-step">
-            {% set field_first_name = function('get_field_object', 'first_name', 'option') %}
-            {% set field_last_name = function('get_field_object', 'last_name', 'option') %}
-
-            {{ function('acf_render_field_wrap', field_first_name) }}
-            {{ function('acf_render_field_wrap', field_last_name) }}
-
-            <button type="button" id="next-step-1">Next</button>
-          </div>
-
-          <!-- Крок 2 -->
-          <div id="step-2" class="form-step" style="display: none;">
-            {% set field_email = function('get_field_object', 'email', 'option') %}
-            {{ function('acf_render_field_wrap', field_email) }}
-
-            <button type="button" id="prev-step-2">Previous</button>
-            <button type="button" id="next-step-2">Next</button>
-          </div>
-
-          <!-- Крок 3 (Фінальний крок) -->
-          <div id="step-3" class="form-step" style="display: none;">
-            {% set field_color = function('get_field_object', 'color', 'option') %}
-            {{ function('acf_render_field_wrap', field_color) }}
-            <button type="button" id="prev-step-2">Previous</button>
-            <button type="submit">Submit</button>
-          </div>
-        </form>
-
-        <div id="form-message" style="display:none; padding: 10px; background-color: #dff0d8; color: #3c763d;">
-          Заявка успішно надіслана!
-        </div>
-
-      </section>
-    </article>
-  </div><!-- /content-wrapper -->
-
+<div class="content">
+	<h1>
+		<h1 class="article-h1">{{post.title}}</h1>
+	</h1>
+	<div class="accordion">
+		<div class="accordion-item active">
+			<div class="accordion-header">
+				<h4>{{ options.step_1_title }}</h4>
+				<p>{{ options.step_1_subtitle }}</p>
+			</div>
+			<div class="accordion-content">
+				<div class="form-items">
+					{% if options.step_1_radio_buttons %}
+						{% for item in options.step_1_radio_buttons %}
+							{% set id = 'radio_' ~ loop.index %}
+							<div class="radio-item">
+								<label for="{{ id }}">
+									{% if item.image %}
+										<img src="{{ item.image.url }}" alt="{{ item.image.alt ?? item.title }}">
+									{% endif %}
+									<input type="radio" name="step_1_choice" value="{{ item.title }}" id="{{ id }}">
+									<span>{{ item.title }}</span>
+								</label>
+							</div>
+						{% endfor %}
+					{% endif %}
+				</div>
+				<button class="next-btn">{{ options.step_1_button_text }}</button>
+			</div>
+		</div>
+		<div class="accordion-item">
+			<div class="accordion-header">
+				<h4>Step 2</h4>
+			</div>
+			<div class="accordion-content">
+				<p>Content for step 2</p>
+				<button class="next-btn">Next</button>
+			</div>
+		</div>
+		<div class="accordion-item">
+			<div class="accordion-header">
+				<h4>Step 3</h4>
+			</div>
+			<div class="accordion-content">
+				<p>Content for step 3</p>
+				<button class="next-btn">Submit</button>
+			</div>
+		</div>
+	</div>
+</div>
 {% endblock %}

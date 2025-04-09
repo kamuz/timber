@@ -1,3 +1,58 @@
-#multi-step-form {
-	padding-top: 120px;
+.content {
+    padding-top: 220px;
+    background-color: #fff;
+    margin: 0 55px;
+}
+
+.content h1 {
+    text-align: center;
+    max-width: 1000px;
+    margin: auto;
+
+}
+
+.accordion-item {
+    margin: 30px 0;
+    background-color: #F1F1F1;
+    border-radius: 30px;
+    padding: 60px;
+}
+
+.accordion-content {
+    display: none;
+}
+
+.accordion-header h4 {
+    font-size: 36px;
+    cursor: pointer;
+}
+
+.accordion-content button {
+    background-color: #000;
+    color: #fff;
+    border-radius: 50px;
+    height: 50px;
+    line-height: 50px;
+    padding: 0 20px;
+    text-transform: none;
+    font-weight: normal;
+    font-size: 14px;
+    display: block;
+    margin: 20px auto;
+}
+
+.form-items {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: start;
+}
+
+.form-items .radio-item {
+    max-width: calc(20% - 16px);
+    box-sizing: border-box;
+}
+
+.form-items .radio-item img {
+	max-width: 100%;
 }
