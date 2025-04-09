@@ -1,0 +1,49 @@
+{% extends "base.twig" %}
+
+{% block content %}
+
+<div class="content-wrapper">
+    <article class="post-type-{{post.post_type}}" id="post-{{post.ID}}">
+      <section class="article-content">
+        <h1 class="article-h1">{{post.title}}</h1>
+        <form method="post" id="multi-step-form">
+          {% set values = form_data|default({}) %}
+
+          <!-- Крок 1 -->
+          <div id="step-1" class="form-step">
+            {% set field_first_name = function('get_field_object', 'first_name', 'option') %}
+            {% set field_last_name = function('get_field_object', 'last_name', 'option') %}
+
+            {{ function('acf_render_field_wrap', field_first_name) }}
+            {{ function('acf_render_field_wrap', field_last_name) }}
+
+            <button type="button" id="next-step-1">Next</button>
+          </div>
+
+          <!-- Крок 2 -->
+          <div id="step-2" class="form-step" style="display: none;">
+            {% set field_email = function('get_field_object', 'email', 'option') %}
+            {{ function('acf_render_field_wrap', field_email) }}
+
+            <button type="button" id="prev-step-2">Previous</button>
+            <button type="button" id="next-step-2">Next</button>
+          </div>
+
+          <!-- Крок 3 (Фінальний крок) -->
+          <div id="step-3" class="form-step" style="display: none;">
+            {% set field_color = function('get_field_object', 'color', 'option') %}
+            {{ function('acf_render_field_wrap', field_color) }}
+            <button type="button" id="prev-step-2">Previous</button>
+            <button type="submit">Submit</button>
+          </div>
+        </form>
+
+        <div id="form-message" style="display:none; padding: 10px; background-color: #dff0d8; color: #3c763d;">
+          Заявка успішно надіслана!
+        </div>
+
+      </section>
+    </article>
+  </div><!-- /content-wrapper -->
+
+{% endblock %}

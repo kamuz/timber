@@ -1,0 +1,195 @@
+{% block html_head_container %}
+{% include 'html-header.twig' %}
+{% block head %}
+{% endblock %}
+</head>
+{% endblock %}
+
+<body class="{{body_class}}" data-template="base.twig">
+    {{ function('wp_body_open') }}
+    <a class="skip-link screen-reader-text" href="#content">{{ _e( 'Skip to content') }}</a>
+    <header id="header">
+        <div class="mobile" onclick="toggleMenu()">
+            <span id="closebtnNo">
+                <span class="line1"></span>
+                <span class="line2"></span>
+            </span>
+        </div>
+        <div class="wr">
+            <div class="header flex flex--center flex--justbetween">
+                <a class="logo logo-m" href="/" data-wpel-link="internal" rel="follow">
+                    <svg width="35" height="53" viewBox="0 0 51 78" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <title>Bluecarrot Animation Studio</title>
+                        <path d="M0 16.2963C0 15.0733 0.993798 14.918 2.21882 14.918H11.1497C14.1488 14.918 16.3254 15.6504 17.6816 17.1152C19.0378 18.5801 19.7159 20.9682 19.7159 24.2796V24.8434C19.7159 28.7607 18.3108 30.2655 15.505 31.029C17.2281 31.4751 18.4397 32.5094 19.1423 34.134C19.8426 35.7587 20.1939 36.4467 20.1939 39.1211C20.1939 43.4846 20.3295 45.9526 19.0222 48.1965C17.7127 50.4426 14.5646 51.5634 11.1497 51.5634H2.21882C0.993798 51.5634 0 51.408 0 50.1851V16.2963ZM9.71343 28.2613C10.4138 28.2613 10.894 27.9994 11.1497 27.4734C11.4053 26.9474 11.5321 26.2083 11.5321 25.2518V23.2298C11.5321 21.8915 10.9407 21.2234 9.76234 21.2234H8.03932V28.2613H9.71343ZM12.059 41.2962V39.3187C12.059 38.0758 11.8744 36.3024 11.5098 35.6632C11.143 35.0262 10.496 34.7089 9.57114 34.7089H8.03932V44.3058L8.85303 44.3524C10.9896 44.3546 12.059 43.3359 12.059 41.2962Z" fill="#030B28"></path>
+                        <path d="M27.3471 74.2151C24.9282 71.6938 23.7188 68.2314 23.7188 63.8258V29.8837C23.7188 24.4127 24.8104 20.2867 26.9936 17.508C29.1769 14.7292 32.6029 13.3398 37.2718 13.3398C41.3403 13.3398 44.6152 14.4518 47.1008 16.6735C49.5842 18.8974 50.827 22.1023 50.827 26.2926V33.2617C50.827 34.3736 49.9244 35.2747 48.8105 35.2747H41.8561C40.7423 35.2747 39.8396 34.3736 39.8396 33.2617V27.6398C39.8396 26.0573 39.6462 24.9676 39.2616 24.3683C38.877 23.7691 38.2122 23.4717 37.2695 23.4717C36.2846 23.4717 35.6088 23.8135 35.2464 24.497C34.8818 25.1806 34.6994 26.1861 34.6994 27.5111V63.6993C34.6994 65.153 34.9129 66.2117 35.342 66.8731C35.7688 67.5367 36.4114 67.8674 37.2695 67.8674C38.9815 67.8674 39.8396 66.4781 39.8396 63.6993V57.9909C39.8396 56.8789 40.7423 55.9778 41.8561 55.9778H48.9372C50.0511 55.9778 50.9537 56.8789 50.9537 57.9909V64.1476C50.9537 73.3828 46.3071 77.9992 37.0139 77.9992C32.9875 77.9992 29.766 76.7386 27.3471 74.2151Z" fill="#030B28"></path>
+                        <path d="M23.6608 6.54576C24.3638 9.43607 27.073 8.78841 27.2753 8.72397L49.5358 1.4547C50.3383 1.09703 50.146 -0.0468464 49.1876 0.00148649L25.9124 3.03679C25.7035 3.06902 22.9612 3.65223 23.6608 6.54576Z" fill="#2E83FF"></path>
+                    </svg>
+                </a>
+                <a class="logo logo-d" href="/" data-wpel-link="internal" rel="follow">
+                    <svg width="127" height="78" viewBox="0 0 127 78" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M0 16.2963C0 15.0733 0.993798 14.918 2.21882 14.918H11.1497C14.1488 14.918 16.3254 15.6504 17.6816 17.1152C19.0378 18.5801 19.7159 20.9682 19.7159 24.2796V24.8434C19.7159 28.7607 18.3108 30.2655 15.505 31.029C17.2281 31.4751 18.4397 32.5094 19.1423 34.134C19.8426 35.7587 20.1939 36.4467 20.1939 39.1211C20.1939 43.4846 20.3295 45.9526 19.0222 48.1965C17.7127 50.4426 14.5646 51.5634 11.1497 51.5634H2.21882C0.993798 51.5634 0 51.408 0 50.1851V16.2963ZM9.71343 28.2613C10.4138 28.2613 10.894 27.9994 11.1497 27.4734C11.4053 26.9474 11.5321 26.2083 11.5321 25.2518V23.2298C11.5321 21.8915 10.9407 21.2234 9.76234 21.2234H8.03932V28.2613H9.71343ZM12.059 41.2962V39.3187C12.059 38.0758 11.8744 36.3024 11.5098 35.6632C11.143 35.0262 10.496 34.7089 9.57114 34.7089H8.03932V44.3058L8.85303 44.3524C10.9896 44.3546 12.059 43.3359 12.059 41.2962Z" fill="#030B28"></path>
+                        <path d="M27.3471 74.2151C24.9282 71.6938 23.7188 68.2314 23.7188 63.8258V29.8837C23.7188 24.4127 24.8104 20.2867 26.9936 17.508C29.1769 14.7292 32.6029 13.3398 37.2718 13.3398C41.3403 13.3398 44.6152 14.4518 47.1008 16.6735C49.5842 18.8974 50.827 22.1023 50.827 26.2926V33.2617C50.827 34.3736 49.9244 35.2747 48.8105 35.2747H41.8561C40.7423 35.2747 39.8396 34.3736 39.8396 33.2617V27.6398C39.8396 26.0573 39.6462 24.9676 39.2616 24.3683C38.877 23.7691 38.2122 23.4717 37.2695 23.4717C36.2846 23.4717 35.6088 23.8135 35.2464 24.497C34.8818 25.1806 34.6994 26.1861 34.6994 27.5111V63.6993C34.6994 65.153 34.9129 66.2117 35.342 66.8731C35.7688 67.5367 36.4114 67.8674 37.2695 67.8674C38.9815 67.8674 39.8396 66.4781 39.8396 63.6993V57.9909C39.8396 56.8789 40.7423 55.9778 41.8561 55.9778H48.9372C50.0511 55.9778 50.9537 56.8789 50.9537 57.9909V64.1476C50.9537 73.3828 46.3071 77.9992 37.0139 77.9992C32.9875 77.9992 29.766 76.7386 27.3471 74.2151Z" fill="#030B28"></path>
+                        <path d="M23.6608 6.54576C24.3638 9.43607 27.073 8.78841 27.2753 8.72397L49.5358 1.4547C50.3383 1.09703 50.146 -0.0468464 49.1876 0.00148649L25.9124 3.03679C25.7035 3.06902 22.9612 3.65223 23.6608 6.54576Z" fill="#2E83FF"></path>
+                        <path d="M73.1602 28.4C73.1602 30.06 72.1402 31.04 71.2602 31.42V31.5C72.6002 31.66 74.0202 32.88 74.0202 35.02C74.0202 37.26 72.5402 39 69.8402 39H62.3602V24.84H69.4402C71.8002 24.84 73.1602 26.4 73.1602 28.4ZM64.8402 32.68V36.76H69.0602C70.4202 36.76 71.3602 36.06 71.3602 34.72C71.3602 33.38 70.4202 32.68 69.0602 32.68H64.8402ZM70.5002 28.86C70.5002 27.72 69.7402 27.08 68.6202 27.08H64.8402V30.64H68.6202C69.7402 30.64 70.5002 30 70.5002 28.86ZM78.6283 24.44V39H76.1483V24.44H78.6283ZM87.7911 29H90.1911V39H87.7911V37.56H87.7111C86.9511 38.68 85.8511 39.4 84.4711 39.4C81.9511 39.4 80.7911 38.18 80.7911 35.42V29H83.1911V35.02C83.1911 36.56 83.6311 37.24 85.2911 37.24C86.5911 37.24 87.7911 36.2 87.7911 35.02V29ZM103.073 34C103.073 34.34 103.033 34.66 102.993 34.98H94.8727C94.8727 36.34 96.0127 37.24 97.6127 37.24C98.8727 37.24 99.9127 36.76 100.053 35.76H102.733C102.433 38.04 100.153 39.4 97.6127 39.4C94.3727 39.4 92.1527 37.08 92.1527 34C92.1527 30.92 94.3727 28.6 97.6127 28.6C100.853 28.6 103.073 30.92 103.073 34ZM97.6127 30.76C96.0127 30.76 94.8927 31.7 94.8727 33.02H100.333C100.313 31.7 99.2127 30.76 97.6127 30.76ZM69.5202 45.6C66.4202 45.6 64.8202 48.02 64.8202 50.92C64.8202 53.86 66.4202 56.24 69.5202 56.24C71.7202 56.24 73.3402 55.36 73.6002 53.42H76.3602C76.0802 56.28 73.3402 58.4 69.5202 58.4C64.7802 58.4 62.1602 55.06 62.1602 50.92C62.1602 46.78 64.7802 43.44 69.5202 43.44C73.3402 43.44 76.0802 45.58 76.3602 48.42H73.6002C73.3202 46.52 71.7202 45.6 69.5202 45.6ZM88.8563 56.5V58.4C87.1163 58.4 85.4763 58.46 85.0963 56.68C84.3563 57.42 82.9163 58.4 81.5163 58.4C78.8763 58.4 77.7163 57.12 77.7163 55.32C77.7163 53.66 79.1163 52.34 81.1763 52.1L84.9363 51.58V50.86C84.9363 50.02 84.3363 49.56 82.9763 49.56C81.7163 49.56 81.1363 49.98 81.0363 50.66H78.5563C78.5563 48.56 80.4563 47.6 82.9763 47.6C85.4963 47.6 87.4163 48.56 87.4163 50.66V55.24C87.4163 56.22 87.6963 56.5 88.8563 56.5ZM81.9163 56.28C83.5763 56.28 84.9363 55.36 84.9363 55.26V53.32L81.7163 53.78C79.8763 54.04 79.9163 56.28 81.9163 56.28ZM96.0047 48H96.8847V50.34L95.4647 50.36C93.8447 50.36 92.9047 51.16 92.9047 52.58V58H90.4247V48H92.9047V49.74H92.9847C93.4047 48.82 94.5647 48 96.0047 48ZM104.031 48H104.911V50.34L103.491 50.36C101.871 50.36 100.931 51.16 100.931 52.58V58H98.4511V48H100.931V49.74H101.011C101.431 48.82 102.591 48 104.031 48ZM111.538 58.4C108.298 58.4 106.078 56.08 106.078 53C106.078 49.92 108.298 47.6 111.538 47.6C114.778 47.6 116.998 49.92 116.998 53C116.998 56.08 114.778 58.4 111.538 58.4ZM111.538 56.24C113.258 56.24 114.338 54.86 114.338 53C114.338 51.16 113.258 49.76 111.538 49.76C109.818 49.76 108.738 51.16 108.738 53C108.738 54.86 109.818 56.24 111.538 56.24ZM123.623 56.18H125.003V58.2H122.843C120.823 58.2 119.523 57.3 119.523 55.06V50.12H118.123V48H119.523V45.1H122.003V48H125.003V50.12H122.003V54.5C122.003 55.82 122.523 56.18 123.623 56.18Z" fill="#030B28"></path>
+                    </svg>
+                </a>
+                <div class="desktop flex flex--center flex--end">
+                    <div class="hd-nav">
+                        <ul class="nav flex">
+                            <li class="nav-item">
+                                <a href="/video/" data-wpel-link="internal" rel="follow">Our work</a>
+                            </li>
+                            <li class="nav-item">
+                                <span>E-learning development<span class="arrow active"></span>
+                                </span>
+                                <div class="nav-nested_wr">
+                                    <ul class="nav-nested wide">
+                                        <li class="nav-nested_item nav-nested_item--collapsed ">
+                                            <a href="https://bluecarrot.io/elearning-course-development/" data-wpel-link="internal" rel="follow">Online courses development</a>
+                                        </li>
+                                        <li class="nav-nested_item nav-nested_item--collapsed ">
+                                            <a href="https://bluecarrot.io/purposes/e-learning-video-production-company/" data-wpel-link="internal" rel="follow">E-learning videos production</a>
+                                        </li>
+                                        <li class="nav-nested_item nav-nested_item--collapsed ">
+                                            <a href="https://bluecarrot.io/e-learning-content-localization-services/" data-wpel-link="internal" rel="follow">Content localization</a>
+                                        </li>
+                                        <li class="nav-nested_item nav-nested_item--collapsed ">
+                                            <a href="https://bluecarrot.io/articulate-storyline-development-for-learning/" data-wpel-link="internal" rel="follow">Articulate development</a>
+                                        </li>
+                                        <li class="nav-nested_item nav-nested_item--collapsed ">
+                                            <a href="https://bluecarrot.io/e-learning-design-services/" data-wpel-link="internal" rel="follow">Instructional design</a>
+                                        </li>
+                                        <li class="nav-nested_item nav-nested_item--collapsed ">
+                                            <a href="https://bluecarrot.io/elearning-content-development/" data-wpel-link="internal" rel="follow">E-learning development outsourcing</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </li>
+                            <li class="nav-item">
+                                <span>Explainer videos<span class="arrow active"></span>
+                                </span>
+                                <div class="nav-nested_wr" style="left: 0px; right: auto;">
+                                    <ul class="nav-nested flex">
+                                        <li class="nav-nested_item">
+                                            <span class="item_pad">Purpose</span>
+                                            <ul class="nav-child">
+                                                <li class="item">
+                                                    <a href="https://bluecarrot.io/purposes/animated-explainer-video-production/" data-wpel-link="internal" rel="follow">Explainer videos</a>
+                                                </li>
+                                                <li class="item">
+                                                    <a href="https://bluecarrot.io/purposes/promotional-video-production-services/" data-wpel-link="internal" rel="follow">Promo videos</a>
+                                                </li>
+                                                <li class="item">
+                                                    <a href="https://bluecarrot.io/purposes/corporate-video-production-services/" data-wpel-link="internal" rel="follow">Corporate videos</a>
+                                                </li>
+                                                <li class="item">
+                                                    <a href="https://bluecarrot.io/purposes/cartoon-marketing-video-production-services/" data-wpel-link="internal" rel="follow">Сartoons</a>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                        <li class="nav-nested_item">
+                                            <span class="item_pad">Industry</span>
+                                            <ul class="nav-child">
+                                                <li class="item">
+                                                    <a href="https://bluecarrot.io/niche/saas/" data-wpel-link="internal" rel="follow">SaaS</a>
+                                                </li>
+                                                <li class="item">
+                                                    <a href="https://bluecarrot.io/purposes/technology-explainer-video-production-services/" data-wpel-link="internal" rel="follow">Technology</a>
+                                                </li>
+                                                <li class="item">
+                                                    <a href="https://bluecarrot.io/purposes/finance-explainer-video-production-company/" data-wpel-link="internal" rel="follow">Fintech</a>
+                                                </li>
+                                                <li class="item">
+                                                    <a href="https://bluecarrot.io/purposes/video-production-services-for-nonprofit-organization/" data-wpel-link="internal" rel="follow">NGO</a>
+                                                </li>
+                                                <li class="item">
+                                                    <a href="https://bluecarrot.io/purposes/video-production-services-for-startups/" data-wpel-link="internal" rel="follow">Startup</a>
+                                                </li>
+                                                <li class="item">
+                                                    <a href="https://bluecarrot.io/purposes/explainer-video-production-for-mobile-applications/" data-wpel-link="internal" rel="follow">Mobile app</a>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                        <li class="nav-nested_item">
+                                            <span class="item_pad">Style</span>
+                                            <ul class="nav-child">
+                                                <li class="item">
+                                                    <a href="https://bluecarrot.io/purposes/2d-animation-production-company/" data-wpel-link="internal" rel="follow">2D</a>
+                                                </li>
+                                                <li class="item">
+                                                    <a href="https://bluecarrot.io/purposes/3d-animation-video-production-company/" data-wpel-link="internal" rel="follow">3D</a>
+                                                </li>
+                                                <li class="item">
+                                                    <a href="https://bluecarrot.io/purposes/traditional-animation-production-services/" data-wpel-link="internal" rel="follow">Traditional</a>
+                                                </li>
+                                                <li class="item">
+                                                    <a href="https://bluecarrot.io/purposes/cut-out-animation-services/" data-wpel-link="internal" rel="follow">Cut out</a>
+                                                </li>
+                                                <li class="item">
+                                                    <a href="https://bluecarrot.io/purposes/whiteboard-animation-studio/" data-wpel-link="internal" rel="follow">Whiteboard</a>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                        <li class="nav-nested_item nav-nested_item--collapsed full_width_item">
+                                            <a href="https://bluecarrot.io/choose-your-format/" data-wpel-link="internal" rel="follow">Choose your format</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </li>
+                            <li class="nav-item">
+                                <span>Blog<span class="arrow active"></span>
+                                </span>
+                                <div class="nav-nested_wr">
+                                    <ul class="nav-nested ">
+                                        <li class="nav-nested_item nav-nested_item--collapsed ">
+                                            <a href="https://bluecarrot.io/blog/" data-wpel-link="internal" rel="follow">Articles</a>
+                                        </li>
+                                        <li class="nav-nested_item nav-nested_item--collapsed ">
+                                            <a href="https://bluecarrot.io/guide/transforming-e-learning-content-development-with-ai/" data-wpel-link="internal" rel="follow">Transforming e-learning with AI</a>
+                                        </li>
+                                        <li class="nav-nested_item nav-nested_item--collapsed ">
+                                            <a href="https://bluecarrot.io/guide/education-and-training-video-production-guide/" data-wpel-link="internal" rel="follow">E-learning videos guide</a>
+                                        </li>
+                                        <li class="nav-nested_item nav-nested_item--collapsed ">
+                                            <a href="https://bluecarrot.io/guide/the-ultimate-guide-to-how-to-make-an-explainer-video/" data-wpel-link="internal" rel="follow">Explainer videos guide</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </li>
+                            <li class="nav-item">
+                                <a href="https://bluecarrot.io/about-us/" data-wpel-link="internal" rel="follow">About us</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <button id="contact_us" class="open-btn-gnrl obtn obtn--grey flex flex--center highlight" data-popup="lightbox-form">Contact us<span class="arrow">
+                        <svg width="8" height="8" viewBox="0 0 8 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M7.5 0.999999C7.5 0.723857 7.27614 0.5 7 0.499999L2.5 0.5C2.22386 0.5 2 0.723857 2 1C2 1.27614 2.22386 1.5 2.5 1.5L6.5 1.5L6.5 5.5C6.5 5.77614 6.72386 6 7 6C7.27614 6 7.5 5.77614 7.5 5.5L7.5 0.999999ZM1.35355 7.35355L7.35355 1.35355L6.64645 0.646446L0.646447 6.64645L1.35355 7.35355Z" fill="white"></path>
+                        </svg>
+                    </span>
+                </button>
+            </div>
+        </div>
+    </header>
+    <section id="content" role="main" class="content-wrapper">
+        {% if title %}<h1>{{title}}</h1>{% endif %}
+        <div class="wrapper">
+            {% block content %}
+            Sorry, no content
+            {% endblock %}
+        </div>
+        {% if sidebar %}
+        <aside class="layout-sidebar">
+            {{sidebar}}
+        </aside>
+        {% endif %}
+    </section>
+    {% block footer %}
+    <footer id="footer">
+        {% include 'footer.twig' %}
+    </footer>
+    {{ function('wp_footer') }}
+    {% endblock %}
+</body>
+
+</html>
