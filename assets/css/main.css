@@ -1,70 +1,259 @@
-.content {
-    padding-top: 220px;
-    background-color: #fff;
-    margin: 0 55px;
+.wrapper {
+	padding: 0 55px;
+}
+
+.wrapper .content {
+	padding-top: 190px;
+	background-color: #fff;
+	margin: 0 auto;
+	max-width: 1366px;
 }
 
 .content h1 {
-    text-align: center;
-    max-width: 1000px;
-    margin: auto;
-
+	text-align: center;
+	max-width: 1000px;
+	margin: auto;
 }
 
 .accordion-item {
-    margin: 30px 0;
-    background-color: #F1F1F1;
-    border-radius: 30px;
-    padding: 60px;
+	margin: 30px 0;
+	background-color: #F1F1F1;
+	border-radius: 30px;
+	padding: 36px;
+	width: 100%;
 }
 
 .accordion-content {
-    display: none;
+	display: none;
+}
+
+.active .accordion-content {
+	display: block;
+}
+
+.active .accordion-content .radio-item {
+	position: relative;
 }
 
 .accordion-header h4 {
-    font-size: 36px;
-    cursor: pointer;
+	font-size: 36px;
+	cursor: pointer;
 }
 
-.accordion-content button {
-    background-color: #000;
-    color: #fff;
-    border-radius: 50px;
-    height: 50px;
-    line-height: 50px;
-    padding: 0 20px;
-    text-transform: none;
-    font-weight: normal;
-    font-size: 14px;
-    display: block;
-    margin: 20px auto;
+.accordion-content .next-btn {
+	background-color: #000;
+	color: #fff;
+	border-radius: 50px;
+	height: 50px;
+	line-height: 50px;
+	padding: 0 20px;
+	text-transform: none;
+	font-weight: normal;
+	font-size: 14px;
+	display: block;
+	margin: 20px auto;
 }
 
-.step-1 .accordion-content .form-items {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 20px;
-    justify-content: start;
+.accordion-content button[type="submit"] {
+	margin: auto;
 }
 
-.step-1 .accordion-content .form-items .radio-item {
-    max-width: calc(20% - 16px);
-    box-sizing: border-box;
+.accordion-content .form-items {
+	margin-top: 20px;
 }
 
-.step-1 .accordion-content .form-items .radio-item img {
+.step-1 .accordion-content .form-items,
+.step-3 .accordion-content .form-items {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 20px;
+	justify-content: start;
+}
+
+.step-1 .accordion-content .form-items .radio-item,
+.step-3 .accordion-content .form-items .radio-item {
+	max-width: calc(20% - 16px);
+	box-sizing: border-box;
+}
+
+.step-1 .accordion-content .form-items .radio-item img,
+.step-3 .accordion-content .form-items .radio-item img {
 	max-width: 100%;
 }
 
 .step-2 .accordion-content .form-items {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 20px;
-    justify-content: start;
+	display: flex;
+	flex-wrap: wrap;
+	gap: 20px;
+	justify-content: start;
 }
 
 .step-2 .accordion-content .form-items .radio-item {
-    width: calc(50% - 16px);
-    box-sizing: border-box;
+	width: calc(50% - 16px);
+	box-sizing: border-box;
+}
+
+.step-2 .accordion-content .form-items .radio-item input {
+	position: absolute;
+	top: 5px;
+	left: 0;
+}
+
+.step-2 .accordion-content .form-items .radio-item .item-title {
+	font-size: 20px;
+	display: inline-block;
+	margin: 0 0 10px 25px;
+	width: calc(100% - 25px);
+}
+
+.step-2 .accordion-content .form-items .radio-item p,
+.step-3 .accordion-content .form-items .radio-item p {
+	font-size: 16px;
+	margin: 0 0 5px 20px;
+}
+
+.step-3 .accordion-content .form-items .radio-item .item-title {
+	font-size: 18px;
+}
+
+.step-4 .accordion-content .form-items {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 20px;
+	justify-content: start;
+}
+
+.step-4 .accordion-content .form-items .radio-item {
+	width: calc(33% - 16px);
+	box-sizing: border-box;
+	font-size: 20px;
+}
+
+.step-4 .accordion-content .decription h5 {
+	font-size: 18px;
+	font-weight: normal;
+	margin: 15px 0;
+}
+
+.step-5 .accordion-content .form-items {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 20px;
+	justify-content: start;
+}
+
+.step-5 .accordion-content .form-items .radio-item {
+	width: calc(25% - 16px);
+	box-sizing: border-box;
+	font-size: 20px;
+}
+
+.step-5 .accordion-content .decription h5 {
+	font-size: 18px;
+	font-weight: normal;
+	margin: 15px 0;
+}
+
+.accordion-item.step-6 .form-items {
+	display: flex;
+	justify-content: space-between;
+	flex-wrap: wrap;
+	gap: 20px;
+	margin-bottom: 30px;
+}
+
+.accordion-item.step-6 .form-items .field-group {
+	width: calc(50% - 15px);
+	position: relative;
+}
+
+.accordion-item.step-6 .form-items input {
+	width: 100%;
+	border-radius: 10px;
+	display: block;
+	font-family: Korbin Medium, sans-serif;
+	background: #fff;
+	padding: 40px 26px 18px 29px;
+	width: 100%;
+	color: #030b28;
+	font-size: 20px;
+	font-weight: 400;
+	line-height: 1.2;
+	letter-spacing: -.4px;
+	border: none;
+	overflow: hidden;
+}
+
+.accordion-item.step-6 .form-items .field-group label {
+	position: absolute;
+	top: 33px;
+	left: 30px;
+}
+
+.accordion-item.step-6 .form-items input::placeholder {
+	display: none;
+}
+
+.accordion-item.step-6 .form-items input:focus+label,
+.accordion-item.step-6 .form-items input:valid+label,
+.accordion-item.step-6 .form-items input.has-text+label {
+	top: 0;
+	left: 0;
+	font-size: 16px;
+	color: rgba(3, 11, 40, .6);
+	background-color: #fff;
+	padding: 20px 30px 0;
+	border-radius: 10px;
+	transition: all 0.5s;
+}
+
+.form-success-message {
+	margin: 20px 0;
+	padding: 15px;
+	border-radius: 5px;
+	position: relative;
+}
+
+.form-success-message.alert-success {
+	color: #155724;
+	background-color: #d4edda;
+	border-color: #c3e6cb;
+}
+
+.form-success-message.alert-dismissible {
+	padding-right: 4rem;
+}
+
+.form-success-message.alert-dismissible .close {
+	position: absolute;
+	top: 0;
+	right: 0;
+	padding: 0.75rem 1.25rem;
+	color: inherit;
+	background: none;
+}
+
+.form-success-message h2 {
+	font-size: 1.5rem;
+	margin-bottom: 0.5rem;
+}
+
+.form-success-message p {
+	margin-bottom: 1rem;
+}
+
+.form-success-message .close {
+	float: right;
+	font-size: 1.5rem;
+	font-weight: 700;
+	line-height: 1;
+	color: #000;
+	text-shadow: 0 1px 0 #fff;
+	opacity: 0.5;
+}
+
+.form-success-message .close:hover {
+	color: #000;
+	text-decoration: none;
+	opacity: 0.75;
 }
