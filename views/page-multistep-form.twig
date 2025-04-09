@@ -5,7 +5,7 @@
 		<h1 class="article-h1">{{post.title}}</h1>
 	</h1>
 	<div class="accordion">
-		<div class="accordion-item active">
+		<div class="accordion-item step-1 active">
 			<div class="accordion-header">
 				<h4>{{ options.step_1_title }}</h4>
 				<p>{{ options.step_1_subtitle }}</p>
@@ -30,13 +30,27 @@
 				<button class="next-btn">{{ options.step_1_button_text }}</button>
 			</div>
 		</div>
-		<div class="accordion-item">
+		<div class="accordion-item step-2">
 			<div class="accordion-header">
-				<h4>Step 2</h4>
+				<h4>{{ options.step_2_title }}</h4>
 			</div>
 			<div class="accordion-content">
-				<p>Content for step 2</p>
-				<button class="next-btn">Next</button>
+				<div class="form-items">
+					{% if options.step_2_radio_buttons %}
+						{% for item in options.step_2_radio_buttons %}
+							{% set id = 'radio_' ~ loop.index %}
+							<div class="radio-item">
+								<label>
+									<input type="radio" name="step_2_choice" value="{{ item.title }}" id="{{ id }}">
+									<span class="item-title">{{ item.title }}</span>
+									<p>Video Type: <span>{{ item.video_type }}</span></p>
+									<p>Duration: <span>{{ item.duration }}</span></p>
+								</label>
+							</div>
+						{% endfor %}
+					{% endif %}
+				</div>
+				<button class="next-btn">{{ options.step_2_button_text }}</button>
 			</div>
 		</div>
 		<div class="accordion-item">

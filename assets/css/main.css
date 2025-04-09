@@ -41,18 +41,30 @@
     margin: 20px auto;
 }
 
-.form-items {
+.step-1 .accordion-content .form-items {
     display: flex;
     flex-wrap: wrap;
     gap: 20px;
     justify-content: start;
 }
 
-.form-items .radio-item {
+.step-1 .accordion-content .form-items .radio-item {
     max-width: calc(20% - 16px);
     box-sizing: border-box;
 }
 
-.form-items .radio-item img {
+.step-1 .accordion-content .form-items .radio-item img {
 	max-width: 100%;
+}
+
+.step-2 .accordion-content .form-items {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: start;
+}
+
+.step-2 .accordion-content .form-items .radio-item {
+    width: calc(50% - 16px);
+    box-sizing: border-box;
 }
