@@ -41,10 +41,21 @@
 	font-size: 20px;
 }
 
-.accordion-content .description h5 {
-	font-size: 20px;
-	margin-bottom: 10px;
+.accordion-content .description h5,
+.step-4 .accordion-content .decription h5,
+.step-5 .accordion-content .decription h5 {
+	font-size: 18px;
 	font-weight: normal;
+	margin: 15px 0 10px;
+}
+
+.active .accordion-header {
+	padding-right: 0;
+}
+
+.accordion-header {
+	position: relative;
+	padding-right: 100px;
 }
 
 .accordion-header h4 {
@@ -52,12 +63,27 @@
 	cursor: pointer;
 }
 
-.accordion-content label.active {
+.accordion-header .selected_item {
 	color: #2E83FF;
+	font-size: 18px;
+}
+
+.accordion-header .edit-btn {
+	float: right;
+    position: absolute;
+    right: 0;
+    bottom: calc(50% - 25px);
+    border: 1px solid #CDCED4;
+    border-radius: 50px;
+    text-transform: none;
 }
 
 .active .accordion-header h4 {
 	margin-bottom: 10px;
+}
+
+.accordion-content label.active {
+	color: #2E83FF;
 }
 
 .accordion-content .next-btn {
@@ -80,22 +106,18 @@
 
 .accordion-content .form-items {
 	margin-top: 20px;
-}
-
-.accordion-content .form-items img + input[type="radio"] {
-	margin-top: 15px;
+	display: flex;
+	flex-wrap: wrap;
+	gap: 20px;
+	justify-content: start;
 }
 
 .accordion-content .form-items img {
 	border-radius: 5px;
 }
 
-.step-1 .accordion-content .form-items,
-.step-3 .accordion-content .form-items {
-	display: flex;
-	flex-wrap: wrap;
-	gap: 20px;
-	justify-content: start;
+.accordion-content .form-items img + input[type="radio"] {
+	margin-top: 15px;
 }
 
 .step-1 .accordion-content .form-items .radio-item,
@@ -109,16 +131,10 @@
 	max-width: 100%;
 }
 
-.step-2 .accordion-content .form-items {
-	display: flex;
-	flex-wrap: wrap;
-	gap: 20px;
-	justify-content: start;
-}
-
 .step-2 .accordion-content .form-items .radio-item {
 	width: calc(50% - 16px);
 	box-sizing: border-box;
+	position: relative;
 }
 
 .step-2 .accordion-content .form-items .radio-item input {
@@ -145,42 +161,16 @@
 	font-size: 18px;
 }
 
-.step-4 .accordion-content .form-items {
-	display: flex;
-	flex-wrap: wrap;
-	gap: 20px;
-	justify-content: start;
-}
-
 .step-4 .accordion-content .form-items .radio-item {
 	width: calc(33% - 16px);
 	box-sizing: border-box;
 	font-size: 20px;
 }
 
-.step-4 .accordion-content .decription h5 {
-	font-size: 18px;
-	font-weight: normal;
-	margin: 15px 0;
-}
-
-.step-5 .accordion-content .form-items {
-	display: flex;
-	flex-wrap: wrap;
-	gap: 20px;
-	justify-content: start;
-}
-
 .step-5 .accordion-content .form-items .radio-item {
 	width: calc(25% - 16px);
 	box-sizing: border-box;
 	font-size: 20px;
-}
-
-.step-5 .accordion-content .decription h5 {
-	font-size: 18px;
-	font-weight: normal;
-	margin: 15px 0;
 }
 
 .accordion-item.step-6 .form-items {
@@ -200,10 +190,8 @@
 	width: 100%;
 	border-radius: 10px;
 	display: block;
-	font-family: Korbin Medium, sans-serif;
 	background: #fff;
 	padding: 40px 26px 18px 29px;
-	width: 100%;
 	color: #030b28;
 	font-size: 20px;
 	font-weight: 400;
@@ -211,6 +199,7 @@
 	letter-spacing: -.4px;
 	border: none;
 	overflow: hidden;
+	font-family: Korbin Medium, sans-esrif;
 }
 
 .accordion-item.step-6 .form-items .field-group label {
@@ -287,65 +276,58 @@
 	opacity: 0.75;
 }
 
-@media(max-width: 1024px){
+/* Media Queries */
+@media(max-width: 1024px) {
 	.step-1 .accordion-content .form-items .radio-item,
 	.step-3 .accordion-content .form-items .radio-item,
 	.step-5 .accordion-content .form-items .radio-item {
 		width: calc(50% - 16px);
 	}
-
 	.accordion-header h4 {
 		font-size: 24px;
 	}
 }
 
-@media(max-width: 780px){
+@media(max-width: 780px) {
 	.wrapper {
 		padding: 0 20px;
 	}
-
 	.wrapper .content {
 		padding-top: 130px;
 	}
-
 	.accordion-item {
 		padding: 36px 20px;
 	}
-
 	.accordion-content .description,
 	.accordion-content .subtitle {
 		margin-left: 0;
 		font-size: 15px;
 	}
-
 	.accordion-item.step-6 .form-items .field-group,
 	.step-2 .accordion-content .form-items .radio-item,
 	.step-4 .accordion-content .form-items .radio-item,
 	.step-5 .accordion-content .form-items .radio-item {
 		width: 100%;
 	}
-
 	.accordion-content p,
 	.step-2 .accordion-content .form-items .radio-item p {
 		font-size: 15px;
 		line-height: 22px;
 	}
-
 	.step-2 .accordion-content .form-items .radio-item .item-title,
 	.step-4 .accordion-content .form-items .radio-item .item-title,
 	.step-5 .accordion-content .form-items .radio-item .item-title {
 		font-size: 18px;
 	}
-
 	.step-1 .accordion-content .form-items .radio-item,
-	.step-3 .accordion-content .form-items .radio-item{
+	.step-3 .accordion-content .form-items .radio-item {
 		width: calc(50% - 10px);
 	}
-
 	.step-3 .accordion-content .form-items .radio-item .item-title,
 	.step-1 .accordion-content .form-items .radio-item span,
 	.step-3 .accordion-content .form-items .radio-item p,
-	.accordion-item.step-6 .form-items input:focus+label, .accordion-item.step-6 .form-items input:valid+label,
+	.accordion-item.step-6 .form-items input:focus+label,
+	.accordion-item.step-6 .form-items input:valid+label,
 	.accordion-item.step-6 .form-items input.has-text+label {
 		font-size: 12px;
 	}
