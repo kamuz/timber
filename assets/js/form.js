@@ -89,47 +89,51 @@ document.addEventListener('DOMContentLoaded', function () {
 	}
 
 	// Form submission with AJAX
-	var forms = document.querySelectorAll('form');
-	for (var i = 0; i < forms.length; i++) {
-		forms[i].addEventListener('submit', function (e) {
+	document.querySelectorAll('form').forEach((form) => {
+		form.addEventListener('submit', async (e) => {
 			e.preventDefault();
 			console.log('Form submit triggered');
 
 			// Create a FormData object from the form
-			var originalFormData = new FormData(this);
+			const originalFormData = new FormData(form);
+			console.log('Original form data' + originalFormData);
+
 			// Convert FormData to a query string
-			var params = new URLSearchParams();
-			originalFormData.forEach(function(value, key) {
+			const params = new URLSearchParams();
+			originalFormData.forEach((value, key) => {
 				params.append(key, value);
 			});
-			var formSerialized = params.toString();
-
+			const formSerialized = params.toString();
 			console.log('Serialized FormData:', formSerialized);
 
 			// Create a new FormData object for AJAX request
-			var sendData = new FormData();
+			const sendData = new FormData();
 			sendData.append('action', 'submit_multi_step_form');
 			sendData.append('data', formSerialized);
 
-			console.log('Sending AJAX request with data:');
-			for (var pair of sendData.entries()) {
-				console.log(pair[0] + ': ' + pair[1]);
+			console.log('Sending fetch request with data:');
+			for (const pair of sendData.entries()) {
+				console.log(`${pair[0]}: ${pair[1]}`);
 			}
 
-			var xhr = new XMLHttpRequest();
-			xhr.open('POST', '/wp-admin/admin-ajax.php', true);
+			try {
+				const response = await fetch('/wp-admin/admin-ajax.php', {
+					method: 'POST',
+					body: sendData
+				});
 
-			xhr.onload = function () {
-				console.log('XHR response status:', xhr.status);
-				console.log('XHR response text:', xhr.responseText);
-				if (xhr.status === 200) {
-					var accordion = document.querySelector('.accordion');
+				console.log('Fetch response status:', response.status);
+				const responseText = await response.text();
+				console.log('Fetch response text:', responseText);
+
+				if (response.ok) {
+					const accordion = document.querySelector('.accordion');
 					if (accordion) {
 						accordion.style.display = 'none';
 					}
 					window.scrollTo({ top: 0, behavior: 'smooth' });
 
-					var successMessage = document.querySelector('.form-success-message');
+					const successMessage = document.querySelector('.form-success-message');
 					if (successMessage) {
 						successMessage.style.display = 'block';
 						successMessage.style.opacity = 0;
@@ -137,19 +141,13 @@ document.addEventListener('DOMContentLoaded', function () {
 					}
 				} else {
 					alert('AJAX error occurred (non-200)');
-					console.error(xhr.responseText);
 				}
-			};
-
-			xhr.onerror = function () {
-				console.error('XHR error triggered');
-				console.error(xhr.responseText);
-			};
-
-			console.log('Sending AJAX request...');
-			xhr.send(sendData);
+			} catch (error) {
+				console.error('Fetch error:', error);
+			}
 		});
-	}
+	});
+
 
 	// Close success message on click
 	var closeButtons = document.querySelectorAll('.form-success-message .close');
