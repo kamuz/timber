@@ -11,7 +11,7 @@
 					<h4>{{ options.step_1_title }}</h4>
 				</div>
 				<div class="accordion-content">
-					<p>{{ options.step_1_subtitle }}</p>
+					<div class="description">{{ options.step_1_subtitle }}</div>
 					<div class="form-items">
 						{% if options.step_1_radio_buttons %}
 						{% for item in options.step_1_radio_buttons %}
@@ -57,9 +57,9 @@
 			<div class="accordion-item step-3">
 				<div class="accordion-header">
 					<h4>{{ options.step_3_title }}</h4>
-					<p>{{ options.step_3_subtitle }}</p>
 				</div>
 				<div class="accordion-content">
+					<div class="description">{{ options.step_3_subtitle }}</div>
 					<div class="form-items">
 						{% if options.step_3_radio_buttons %}
 						{% for item in options.step_3_radio_buttons %}
@@ -85,7 +85,7 @@
 					<h4>{{ options.step_4_title }}</h4>
 				</div>
 				<div class="accordion-content">
-					<div class="decription">{{ options.step_4_description }}</div>
+					<div class="description">{{ options.step_4_description }}</div>
 					<div class="form-items">
 						{% if options.step_4_radio_buttons %}
 						{% for item in options.step_4_radio_buttons %}
@@ -107,7 +107,7 @@
 					<h4>{{ options.step_5_title }}</h4>
 				</div>
 				<div class="accordion-content">
-					<div class="decription">{{ options.step_5_description }}</div>
+					<div class="description">{{ options.step_5_description }}</div>
 					<div class="form-items">
 						{% if options.step_5_radio_buttons %}
 						{% for item in options.step_5_radio_buttons %}
@@ -129,7 +129,7 @@
 					<h4>{{ options.step_6_title }}</h4>
 				</div>
 				<div class="accordion-content">
-					<div class="decription">{{ options.step_6_description }}</div>
+					<div class="description">{{ options.step_6_subtitle }}</div>
 					<div class="form-items">
 						<div class="field-group">
 							<input type="text" id="name" name="{{ options.step_6_name_label }}" required autocomplete="name">
