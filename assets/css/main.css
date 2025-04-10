@@ -66,6 +66,7 @@
 .accordion-header .selected_item {
 	color: #2E83FF;
 	font-size: 18px;
+	margin-left: 30px;
 }
 
 .accordion-header .edit-btn {
@@ -285,6 +286,11 @@
 	}
 	.accordion-header h4 {
 		font-size: 24px;
+		line-height: 1;
+	}
+
+	.accordion-header .selected_item {
+		margin: 5px 0 0 0;
 	}
 }
 
