@@ -52,6 +52,10 @@
 	cursor: pointer;
 }
 
+.accordion-content label.active {
+	color: #2E83FF;
+}
+
 .active .accordion-header h4 {
 	margin-bottom: 10px;
 }
@@ -306,6 +310,12 @@
 
 	.accordion-item {
 		padding: 36px 20px;
+	}
+
+	.accordion-content .description,
+	.accordion-content .subtitle {
+		margin-left: 0;
+		font-size: 15px;
 	}
 
 	.accordion-item.step-6 .form-items .field-group,

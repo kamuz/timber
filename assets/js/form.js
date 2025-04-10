@@ -177,4 +177,23 @@ document.addEventListener('DOMContentLoaded', function () {
 			}
 		});
 	}
+
+	// Add active class for selected element
+	document.querySelectorAll('.accordion-item').forEach(item => {
+		const radios = item.querySelectorAll('input[type="radio"]');
+		radios.forEach(radio => {
+			radio.addEventListener('change', function () {
+				// Remove active from all labels in this accordion
+				item.querySelectorAll('label').forEach(label => {
+					label.classList.remove('active');
+				});
+				// Add active to the current label
+				const label = this.closest('label');
+				if (label) {
+					label.classList.add('active');
+				}
+			});
+		});
+	});
+
 });
