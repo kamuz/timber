@@ -33,7 +33,7 @@ if ( function_exists( 'acf_add_options_page' ) ) {
 function enqueue_assets() {
 	wp_enqueue_style( 'site-css', get_template_directory_uri() . '/assets/css/site.css' );
 	wp_enqueue_style( 'main-css', get_template_directory_uri() . '/assets/css/main.css' );
-	wp_enqueue_script( 'form-js', get_template_directory_uri() . '/assets/js/form.js', array( 'jquery' ), '1.0.0', true );
+	wp_enqueue_script( 'form-js', get_template_directory_uri() . '/assets/js/form.js', '1.0.0', true );
 	$script = array(
 		'ajaxurl' => admin_url( 'admin-ajax.php' ),
 	);
