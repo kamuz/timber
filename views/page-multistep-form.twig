@@ -22,8 +22,10 @@
 								{% if item.image %}
 								<img src="{{ item.image.url }}" alt="{{ item.image.alt ?? item.title }}">
 								{% endif %}
-								<input type="radio" name="{{ options.step_1_title }}" value="{{ item.title }}" id="{{ id }}">
-								<span>{{ item.title }}</span>
+								<div class="radio-input">
+									<input type="radio" name="{{ options.step_1_title }}" value="{{ item.title }}" id="{{ id }}">
+									<span class="item-title">{{ item.title }}</span>
+								</div>
 							</label>
 						</div>
 						{% endfor %}
@@ -44,8 +46,10 @@
 						{% set id = 'step-2-radio-' ~ loop.index %}
 						<div class="radio-item">
 							<label>
-								<input type="radio" name="{{ options.step_2_title }}" value="{{ item.title }}" id="{{ id }}">
-								<span class="item-title">{{ item.title }}</span>
+								<div class="radio-input">
+									<input type="radio" name="{{ options.step_2_title }}" value="{{ item.title }}" id="{{ id }}">
+									<span class="item-title">{{ item.title }}</span>
+								</div>
 								<p>Video Type: <span>{{ item.video_type }}</span></p>
 								<p>Duration: <span>{{ item.duration }}</span></p>
 							</label>
@@ -72,8 +76,10 @@
 								{% if item.image %}
 								<img src="{{ item.image.url }}" alt="{{ item.image.alt ?? item.title }}">
 								{% endif %}
-								<input type="radio" name="{{ options.step_3_title }}" value="{{ item.title}} - {{ item.subtitle }}" id="{{ id }}">
-								<span class="item-title">{{ item.title }}</span>
+								<div class="radio-input">
+									<input type="radio" name="{{ options.step_3_title }}" value="{{ item.title}} - {{ item.subtitle }}" id="{{ id }}">
+									<span class="item-title">{{ item.title }}</span>
+								</div>
 								<p>{{ item.subtitle }}</p>
 							</label>
 						</div>
@@ -96,8 +102,10 @@
 						{% set id = 'step-4-radio-' ~ loop.index %}
 						<div class="radio-item">
 							<label>
-								<input type="radio" name="{{ options.step_4_title }}" value="{{ item.title }}" id="{{ id }}">
-								<span class="item-title">{{ item.title }}</span>
+								<div class="radio-input">
+									<input type="radio" name="{{ options.step_4_title }}" value="{{ item.title }}" id="{{ id }}">
+									<span class="item-title">{{ item.title }}</span>
+								</div>
 							</label>
 						</div>
 						{% endfor %}
@@ -119,8 +127,10 @@
 						{% set id = 'step-5-radio-' ~ loop.index %}
 						<div class="radio-item">
 							<label>
-								<input type="radio" name="{{ options.step_5_title }}" value="{{ item.title }}" id="{{ id }}">
-								<span class="item-title">{{ item.title }}</span>
+								<div class="radio-input">
+									<input type="radio" name="{{ options.step_5_title }}" value="{{ item.title }}" id="{{ id }}">
+									<span class="item-title">{{ item.title }}</span>
+								</div>
 							</label>
 						</div>
 						{% endfor %}

@@ -83,7 +83,7 @@
 	margin-bottom: 10px;
 }
 
-.accordion-content label.active {
+.accordion-content label.active .item-title {
 	color: #2E83FF;
 }
 
@@ -147,14 +147,14 @@
 .step-2 .accordion-content .form-items .radio-item .item-title {
 	font-size: 20px;
 	display: inline-block;
-	margin: 0 0 10px 25px;
+	margin: 0 0 10px 0;
 	width: calc(100% - 25px);
 }
 
 .step-2 .accordion-content .form-items .radio-item p,
 .step-3 .accordion-content .form-items .radio-item p {
 	font-size: 16px;
-	margin: 0 0 5px 20px;
+	margin: 0 0 5px 30px;
 	color: #4F5569;
 }
 
@@ -337,4 +337,61 @@
 	.accordion-item.step-6 .form-items input.has-text+label {
 		font-size: 12px;
 	}
+}
+
+.radio-input {
+    position: relative;
+    margin-top: 10px;
+}
+
+.radio-input input {
+    appearance: none;
+    position: absolute;
+}
+
+.radio-input span {
+    padding-left: 30px;
+    display: block;
+    font-size: 1rem;
+    color: #444;
+    cursor: pointer;
+    position: relative;
+}
+
+.radio-input span:before {
+    content: "";
+    display: block;
+    width: 22px;
+    height: 22px;
+    border: 1px solid #fff;
+    background-color: #fff;
+    border-radius: 50%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    transition: border .1s linear;
+}
+
+.radio-input span:after {
+    content: "";
+    display: block;
+    width: 6px;
+    height: 6px;
+    background-color: 	#030B28;
+    border-radius: 50%;
+    opacity: 0;
+    position: absolute;
+    top: 9px;
+    left: 9px;
+    z-index: 2;
+    transition: opacity .1s linear;
+}
+
+.radio-input input:checked+span:before {
+    border-color: #fff;
+}
+
+.radio-input input:checked+span:after {
+    opacity: 1;
 }
